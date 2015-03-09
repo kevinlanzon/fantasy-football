@@ -6,8 +6,11 @@
 <body>
   <header><h1>Fantasy Football</h1></header>
    <div class="styled-select">
-    <select class="holder"></select>
-       <span class="status"></span>
+    <select class="players"></select>
+   </div>
+   <h1> Team </h1>
+   <div class="teams">
+    
    </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
@@ -17,9 +20,18 @@ for (var id = 1; id <= 20; id++){
     url: "http://fantasy.premierleague.com/web/api/elements/" + id + "/",
     dataType: 'json'
     }).done(function(data) {
-      console.log(data);
+      $('.players').append(
+        $('<option></option>').val(data.web_name).html(data.web_name)
+        );
     });
 };
+
+
+$('.players').change(function(){
+  var team = $('option:selected', $(this)).text();
+  $('.teams').prepend(team);
+  console.log(team);
+  });
 
 
 

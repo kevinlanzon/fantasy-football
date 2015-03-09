@@ -10,7 +10,7 @@
    </div>
    <h1> Team </h1>
    <div class="teams">
-    
+
    </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
@@ -26,13 +26,14 @@ for (var id = 1; id <= 20; id++){
     });
 };
 
+teamArray = [];
 
-$('.players').change(function(){
-  var team = $('option:selected', $(this)).text();
-  $('.teams').prepend(team);
-  console.log(team);
+  $('.players').change(function(){
+    var team = $('option:selected', $(this)).text();
+    teamArray.push(team);
+  $('.teams').append(teamArray[teamArray.length-1] + '<br />');
+    console.log(teamArray);
   });
-
 
 
 </script>

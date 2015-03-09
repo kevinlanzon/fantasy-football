@@ -13,11 +13,11 @@
    <h3>Goalkeepers</h3>
     <select class="goalkeepers"></select>
     <h3>Defenders</h3>
-    <select class="defenders">Defenders</select>
+    <select class="defenders"></select>
     <h3>Midfielders</h3>
-    <select class="midfielders">Midfielders</select>
+    <select class="midfielders"></select>
     <h3>Forwards</h3>
-    <select class="forwards">Forwards</select>
+    <select class="forwards"></select>
    </div>
 
 
@@ -30,7 +30,6 @@ for (var id = 1; id <= 40; id++) {
     dataType: 'json'
     }).done(function(data) {
       if(data.type_name === "Goalkeeper") {
-
       $('.goalkeepers').append(
         $('<option></option>').val(data.web_name).html(data.web_name)
         );
@@ -47,7 +46,6 @@ for (var id = 1; id <= 40; id++) {
     dataType: 'json'
     }).done(function(data) {
       if(data.type_name === "Defender") {
-
       $('.defenders').append(
         $('<option></option>').val(data.web_name).html(data.web_name)
         );
@@ -64,7 +62,6 @@ for (var id = 1; id <= 40; id++) {
     dataType: 'json'
     }).done(function(data) {
       if(data.type_name === "Midfielder") {
-
       $('.midfielders').append(
         $('<option></option>').val(data.web_name).html(data.web_name)
         );
@@ -81,7 +78,6 @@ for (var id = 1; id <= 40; id++) {
     dataType: 'json'
     }).done(function(data) {
       if(data.type_name === "Forward") {
-
       $('.forwards').append(
         $('<option></option>').val(data.web_name).html(data.web_name)
         );
@@ -98,6 +94,7 @@ teamArray = [];
     var player = $('option:selected', $(this)).text();
     if(teamArray.indexOf(player) === -1 && teamArray.length < 15){
     teamArray.push(player);
+    console.log(player)
   $('.teams').append(teamArray[teamArray.length-1] + '<br />');
   }
   else {

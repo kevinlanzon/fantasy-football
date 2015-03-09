@@ -2,11 +2,19 @@
 <html>
   <head>
     <title>Fantasy Football</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
 <body>
   <header><h1>Fantasy Football</h1></header>
    <div class="styled-select">
-    <select class="players"></select>
+   <h3>Goalkeepers</h3>
+    <select class="goalkeepers"></select>
+    <h3>Defenders</h3>
+    <select class="defenders">Defenders</select>
+    <h3>Midfielders</h3>
+    <select class="midfielders">Midfielders</select>
+    <h3>Forwards</h3>
+    <select class="forwards">Forwards</select>
    </div>
    <h1> Team </h1>
    <div class="teams">
@@ -15,32 +23,86 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
 
-for (var id = 1; id <=685; id++){
+for (var id = 1; id <= 40; id++) {
   $.ajax({
     url: "http://fantasy.premierleague.com/web/api/elements/" + id + "/",
     dataType: 'json'
     }).done(function(data) {
-      // console.log(data)
-      $('.players').append(
+      if(data.type_name === "Goalkeeper") {
+
+      $('.goalkeepers').append(
         $('<option></option>').val(data.web_name).html(data.web_name)
         );
+    }
+    else {
+      return false
+    }
+    });
+};
+
+for (var id = 1; id <= 40; id++) {
+  $.ajax({
+    url: "http://fantasy.premierleague.com/web/api/elements/" + id + "/",
+    dataType: 'json'
+    }).done(function(data) {
+      if(data.type_name === "Defender") {
+
+      $('.defenders').append(
+        $('<option></option>').val(data.web_name).html(data.web_name)
+        );
+    }
+    else {
+      return false
+    }
+    });
+};
+
+for (var id = 1; id <= 40; id++) {
+  $.ajax({
+    url: "http://fantasy.premierleague.com/web/api/elements/" + id + "/",
+    dataType: 'json'
+    }).done(function(data) {
+      if(data.type_name === "Midfielder") {
+
+      $('.midfielders').append(
+        $('<option></option>').val(data.web_name).html(data.web_name)
+        );
+    }
+    else {
+      return false
+    }
+    });
+};
+
+for (var id = 1; id <= 40; id++) {
+  $.ajax({
+    url: "http://fantasy.premierleague.com/web/api/elements/" + id + "/",
+    dataType: 'json'
+    }).done(function(data) {
+      if(data.type_name === "Forward") {
+
+      $('.forwards').append(
+        $('<option></option>').val(data.web_name).html(data.web_name)
+        );
+    }
+    else {
+      return false
+    }
     });
 };
 
 teamArray = [];
 
-  $('.players').change(function(){
+  $('select').change(function() {
     var player = $('option:selected', $(this)).text();
     if(teamArray.indexOf(player) === -1 && teamArray.length < 15){
     teamArray.push(player);
   $('.teams').append(teamArray[teamArray.length-1] + '<br />');
   }
-  else{
+  else {
     return false
   }
   });
-
-
 
 </script>
 </body>

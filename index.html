@@ -29,11 +29,16 @@ for (var id = 1; id <= 20; id++){
 teamArray = [];
 
   $('.players').change(function(){
-    var team = $('option:selected', $(this)).text();
-    teamArray.push(team);
+    var player = $('option:selected', $(this)).text();
+    if(teamArray.indexOf(player) === -1 && teamArray.length < 15){
+    teamArray.push(player);
   $('.teams').append(teamArray[teamArray.length-1] + '<br />');
-    console.log(teamArray);
+  }
+  else{
+    return false
+  }
   });
+
 
 
 </script>

@@ -2,14 +2,78 @@ body{
   background-image: url('http://www.grassform.co.uk/wp-content/uploads/stock-photo-detail-of-soccer-field-grass-in-a-stadium-102104047.jpg');
   background-repeat: no-repeat;
   background-size: 1500px 900px;
+  font-family: courier;
 }
 
 .teams{
   position: absolute;
   margin-left: 80%;
   margin-bottom: 2000px;
+  font-family: courier;
 }
 
 select {
   position: relative;
 }
+
+h1{
+  text-align: center;
+}
+
+.gk{
+  position: absolute;
+  margin-left: 40%;
+  margin-top: 10%;
+
+  font-family: courier;
+  font-size: 30px;
+}
+
+.def{
+  position: absolute;
+  margin-left: 40%;
+  margin-top: 25%;
+  font-family: courier;
+  font-size: 30px;
+}
+
+.mid{
+  position: absolute;
+  margin-left: 40%;
+  margin-top: 50%;
+  font-family: courier;
+  font-size: 30px;
+}
+
+.fwd{
+  position: absolute;
+  margin-left: 40%;
+  margin-top: 75%;
+  font-family: courier;
+  font-size: 30px;
+}
+
+.cost{
+  position: absolute;
+  margin-top: 10%;
+  margin-left: 80%;
+  font-size: 20px;
+}
+
+.styled-select select {
+  background: black;
+  width: 268px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 20px ;
+  height: 34px;
+  -webkit-appearance: none;
+  color: white;
+  font-family: courier;
+}
+
+/*audio{
+  display: none;
+}*/

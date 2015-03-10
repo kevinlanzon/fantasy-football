@@ -1,5 +1,6 @@
 var total_cost = 0
-var fund_available
+var funds_available
+
 for (var id = 1; id <= 40; id++) {
   $.ajax({
     url: "http://fantasy.premierleague.com/web/api/elements/" + id + "/",
@@ -13,30 +14,34 @@ for (var id = 1; id <= 40; id++) {
 
 function populateTeam(selectorClass, positionArray, positionClass, positionCode, positionMax){
    $(selectorClass).change(function() {
-    var player = $('option:selected', $(this)).html();
-    var cost = $('option:selected', $(this)).val();
+    var player_name = $('option:selected', $(this)).html();
+    var player_cost = $('option:selected', $(this)).val();
 
-    if(positionArray.indexOf(player) === -1 && positionArray.length < positionMax){
-      positionArray.push(player);
-      cost = parseInt(cost)
-      total_cost = total_cost + cost
-      fund_available = 200 - total_cost
-      console.log(fund_available)
-      if(fund_available >= 0){
+    if(positionArray.indexOf(player_name) === -1 && positionArray.length < positionMax){ 
+      positionArray.push(player_name);
+      total_cost = total_cost + parseInt(player_cost)
+      // funds_available = 1500 - total_cost
+      if(total_cost < 1000){     
 
-      $("button").click(function() {
-          positionArray.length = 0
-          $(positionClass).empty()
+      $(positionClass).append('<div id=' + player_name + '>' + positionCode + player_name + ' £' + player_cost/10 + 'm' + '</div>' );
+       
+       $("#" + player_name + "").click(function() { 
+        $(this).remove();
+        positionArray.splice($.inArray(player_name, positionArray),1);
+        console.log(goalkeeperArray)
+        total_cost = total_cost - parseInt(player_cost)
+        console.log(total_cost)
+         $('.cost').text(total_cost/10 + 'm');
       });
-
-      $(positionClass).append(positionCode + positionArray[positionArray.length-1] + ' £' + cost/10 + 'm' + '<br />');
-      $('.cost').text(fund_available/10 + 'm');
+      $('.cost').text(total_cost/10 + 'm');
       }
       } else {return false}
     });
 };
 
 goalkeeperArray = []; defenderArray = []; midfielderArray = []; forwardArray = []
+
+
 
 populateTeam('.goalkeepers', goalkeeperArray, '.gk', 'GK: ', 2)
 populateTeam('.defenders', defenderArray, '.def', 'DEF: ', 5)

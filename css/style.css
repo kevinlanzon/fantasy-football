@@ -5,12 +5,12 @@ body{
   font-family: courier;
 }
 
-.teams{
+/*.teams{
   position: absolute;
   margin-left: 80%;
   margin-bottom: 2000px;
   font-family: courier;
-}
+}*/
 
 select {
   position: relative;
@@ -22,33 +22,35 @@ h1{
 
 .gk{
   position: absolute;
-  margin-left: 40%;
-  margin-top: 10%;
-
+  top: 120px;
+  left: 50%;
   font-family: courier;
   font-size: 30px;
 }
 
 .def{
   position: absolute;
-  margin-left: 40%;
-  margin-top: 25%;
+  top: 220px;
+  left: 50%;
+  float: right;
   font-family: courier;
   font-size: 30px;
 }
 
 .mid{
   position: absolute;
-  margin-left: 40%;
-  margin-top: 50%;
+  top: 420px;
+  left: 50%;
+  float: right;
   font-family: courier;
   font-size: 30px;
 }
 
 .fwd{
-  position: absolute;
-  margin-left: 40%;
-  margin-top: 75%;
+   position: absolute;
+  top: 620px;
+  left: 50%;
+  float: right;
   font-family: courier;
   font-size: 30px;
 }
@@ -58,11 +60,14 @@ h1{
   margin-top: 10%;
   margin-left: 80%;
   font-size: 20px;
+  font-size: 26px;
+  color: blue;
 }
 
 .styled-select select {
+
   background: black;
-  width: 268px;
+  width: 25%;
   padding: 5px;
   font-size: 16px;
   line-height: 1;
@@ -73,6 +78,9 @@ h1{
   color: white;
   font-family: courier;
 }
+
+
+
 
 /*audio{
   display: none;

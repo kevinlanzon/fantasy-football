@@ -1,3 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header{}
+
+
 body{
   background-image: url('http://www.grassform.co.uk/wp-content/uploads/stock-photo-detail-of-soccer-field-grass-in-a-stadium-102104047.jpg');
   background-repeat: no-repeat;
@@ -58,6 +66,15 @@ h1{
 .cost{
   position: absolute;
   margin-top: 10%;
+  margin-left: 80%;
+  font-size: 20px;
+  font-size: 26px;
+  color: blue;
+}
+
+.pointer{
+  position: absolute;
+  margin-top: 8%;
   margin-left: 80%;
   font-size: 20px;
   font-size: 26px;
